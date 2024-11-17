@@ -1,22 +1,20 @@
 import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-
 import 'package:flutter_incoming_call/flutter_incoming_call.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:uuid/uuid.dart';
 
-import '../Dashboard/DashWidgets/DashAppbar.dart';
 
 class Fake extends StatefulWidget {
+  const Fake({Key? key}) : super(key: key);
+
   @override
   _FakeState createState() => _FakeState();
 }
 
 class _FakeState extends State<Fake> {
-  var uuid = Uuid();
+  var uuid = const Uuid();
   int quoteIndex = 0;
 
   late BaseCallEvent _lastEvent;
@@ -28,21 +26,19 @@ class _FakeState extends State<Fake> {
 
   void _incomingCall() {
     final uid = uuid.v4();
-    final name = 'Home';
-    final avatar =
+    const name = 'Home';
+    const avatar =
         'https://scontent.fhel6-1.fna.fbcdn.net/v/t1.0-9/62009611_2487704877929752_6506356917743386624_n.jpg?_nc_cat=102&_nc_sid=09cbfe&_nc_ohc=cIgJjOYlVj0AX_J7pnl&_nc_ht=scontent.fhel6-1.fna&oh=ef2b213b74bd6999cd74e3d5de235cf4&oe=5F6E3331';
-    final handle = 'Home';
-    final type = HandleType.generic;
-    final isVideo = true;
+    const handle = 'Home';
+    const type = HandleType.generic;
+    const isVideo = true;
     FlutterIncomingCall.displayIncomingCall(
         uid, name, avatar, handle, type, isVideo);
   }
 
   void _endCurrentCall() {
-    if (_lastEvent != null) {
-      FlutterIncomingCall.endCall(_lastCallEvent.uuid);
+    FlutterIncomingCall.endCall(_lastCallEvent.uuid);
     }
-  }
 
   void _endAllCalls() {
     FlutterIncomingCall.endAllCalls();
@@ -119,14 +115,14 @@ class _FakeState extends State<Fake> {
         home: Scaffold(
             appBar: AppBar(
               leading: IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.black),
+                icon: const Icon(Icons.arrow_back, color: Colors.black),
                 onPressed: () => Navigator.of(context).pop(),
               ),
-              iconTheme: IconThemeData(
+              iconTheme: const IconThemeData(
                 color: Colors.black, //change your color here
               ),
               backgroundColor: Colors.white,
-              title: Text(
+              title: const Text(
                 "Fake Call",
                 style: TextStyle(color: Colors.black),
               ),
@@ -135,7 +131,7 @@ class _FakeState extends State<Fake> {
                 child: Stack(fit: StackFit.expand, children: [
               Container(
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage(
                       'assets/bg-top.png',
                     ),
@@ -162,17 +158,17 @@ class _FakeState extends State<Fake> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     SizedBox(height: MediaQuery.of(context).size.height / 20),
-                    SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
                     GestureDetector(
                       onTap: _incomingCall,
                       child: Container(
-                        padding: EdgeInsets.all(10),
-                        margin: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(10),
+                        margin: const EdgeInsets.all(15),
                         height: 60,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -189,7 +185,7 @@ class _FakeState extends State<Fake> {
                         child: Text(
                           "Incoming call now",
                           style: GoogleFonts.lato(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                             color: Colors.white,
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
@@ -198,16 +194,16 @@ class _FakeState extends State<Fake> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     GestureDetector(
                       onTap: () =>
-                          Future.delayed(Duration(seconds: 5), _incomingCall),
+                          Future.delayed(const Duration(seconds: 5), _incomingCall),
                       child: Container(
                         // padding: EdgeInsets.all(10),
-                        margin: EdgeInsets.all(15),
+                        margin: const EdgeInsets.all(15),
                         height: 60,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -224,7 +220,7 @@ class _FakeState extends State<Fake> {
                         child: Text(
                           "Incoming call delay 5 sec",
                           style: GoogleFonts.lato(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                             color: Colors.white,
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
@@ -233,15 +229,15 @@ class _FakeState extends State<Fake> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     GestureDetector(
                       onTap: _endCurrentCall,
                       child: Container(
                         // padding: EdgeInsets.all(10),
-                        margin: EdgeInsets.all(15),
+                        margin: const EdgeInsets.all(15),
                         height: 60,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -258,7 +254,7 @@ class _FakeState extends State<Fake> {
                         child: Text(
                           "End current call",
                           style: GoogleFonts.lato(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                             color: Colors.white,
                             fontSize: 17,
                             fontWeight: FontWeight.bold,
@@ -267,15 +263,15 @@ class _FakeState extends State<Fake> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     GestureDetector(
                       onTap: _endAllCalls,
                       child: Container(
                         // padding: EdgeInsets.all(10),
-                        margin: EdgeInsets.all(15),
+                        margin: const EdgeInsets.all(15),
                         height: 60,
                         alignment: Alignment.center,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
@@ -292,7 +288,7 @@ class _FakeState extends State<Fake> {
                         child: Text(
                           "End all calls",
                           style: GoogleFonts.lato(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                             color: Colors.white,
                             fontSize: 17,
                             fontWeight: FontWeight.bold,

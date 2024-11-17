@@ -109,7 +109,7 @@ class SwipeButtonDemo extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: SwipeButton(
-                  thumb: Row(
+                  thumb: const Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Align(
@@ -149,7 +149,7 @@ class SwipeButtonDemo extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: SwipeButtonDemo(
       buttonTitle: 'Swipe to Call',
     ),

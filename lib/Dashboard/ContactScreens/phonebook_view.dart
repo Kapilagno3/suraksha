@@ -8,6 +8,8 @@ import 'package:gosecure/Dashboard/Dashboard.dart';
 import 'package:gosecure/animations/bottomAnimation.dart';
 
 class PhoneBook extends StatefulWidget {
+  const PhoneBook({Key? key}) : super(key: key);
+
   // final FirebaseUser user;
   // final bool contactAvailable;
   // final Function(bool) callback;
@@ -21,9 +23,9 @@ class PhoneBook extends StatefulWidget {
 class _PhoneBookState extends State<PhoneBook> {
   late List<Contact> _contacts;
   late List<Contact> filteredContacts;
-  late List<Contact> _userSelectedContacts = [];
+  late final List<Contact> _userSelectedContacts = [];
 
-  Permission _permission = Permission.contacts;
+  final Permission _permission = Permission.contacts;
   PermissionStatus _permissionStatus = PermissionStatus.denied;
 
   Future<PermissionStatus> _getContactPermission() async {
@@ -55,12 +57,12 @@ class _PhoneBookState extends State<PhoneBook> {
 
   void _handleInvalidPermissions(PermissionStatus permissionStatus) {
     if (permissionStatus == PermissionStatus.denied) {
-      throw new PlatformException(
+      throw PlatformException(
           code: "PERMISSION_DENIED",
           message: "Access to location data denied",
           details: null);
     } else if (permissionStatus == PermissionStatus.denied) {
-      throw new PlatformException(
+      throw PlatformException(
           code: "PERMISSION_DISABLED",
           message: "Location data is not available on device",
           details: null);
@@ -117,31 +119,31 @@ class _PhoneBookState extends State<PhoneBook> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: saveContacts,
-        backgroundColor: Color(0xFFFB8580),
-        child: Text("Save"),
+        backgroundColor: const Color(0xFFFB8580),
+        child: const Text("Save"),
       ),
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Color(0xFFFB8580),
+        backgroundColor: const Color(0xFFFB8580),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             goBack();
           },
         ),
         title: TextField(
           textInputAction: TextInputAction.search,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
           cursorColor: Colors.white,
           decoration: InputDecoration(
-              focusedBorder: UnderlineInputBorder(
+              focusedBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.transparent)),
-              enabledBorder: UnderlineInputBorder(
+              enabledBorder: const UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.transparent)),
               prefixIcon: Icon(Icons.search,
                   color: Colors.white70, size: height * 0.03),
               hintText: 'Search Name',
-              hintStyle: TextStyle(color: Colors.white70)),
+              hintStyle: const TextStyle(color: Colors.white70)),
           onChanged: (string) {
             setState(() {
               filteredContacts = _contacts
@@ -154,29 +156,29 @@ class _PhoneBookState extends State<PhoneBook> {
         ),
       ),
       body: _contacts != null
-          ? Container(
+          ? SizedBox(
               height: height,
               width: width,
               child: ListView.separated(
                 padding: EdgeInsets.symmetric(vertical: height * 0.01),
                 separatorBuilder: (context, index) {
-                  Contact c = filteredContacts!.elementAt(index);
+                  Contact c = filteredContacts.elementAt(index);
                   if (c.phones!.isEmpty) {
-                    return SizedBox();
+                    return const SizedBox();
                   }
                   return Divider(height: height * 0.01);
                 },
-                itemCount: filteredContacts?.length ?? 0,
+                itemCount: filteredContacts.length ?? 0,
                 itemBuilder: (BuildContext context, int index) {
-                  Contact c = filteredContacts!.elementAt(index);
+                  Contact c = filteredContacts.elementAt(index);
                   return ItemsTile(addToContacts, c, c.phones!);
                 },
               ),
             )
-          : Center(
+          : const Center(
               child: CircularProgressIndicator(
                   valueColor:
-                      new AlwaysStoppedAnimation<Color>(Color(0xffbe3a5a))),
+                      AlwaysStoppedAnimation<Color>(Color(0xffbe3a5a))),
             ),
     );
   }
@@ -210,7 +212,7 @@ class _PhoneBookState extends State<PhoneBook> {
   }
 
   String refactorPhoneNumbers(String phone) {
-    if (phone == null || phone == "") {
+    if (phone == "") {
       return "";
     }
     var newPhone = phone.replaceAll(RegExp(r"[^\name\w]"), '');
@@ -235,7 +237,7 @@ class _PhoneBookState extends State<PhoneBook> {
 }
 
 class ItemsTile extends StatefulWidget {
-  ItemsTile(this.addToContacts, this.c, this._items);
+  const ItemsTile(this.addToContacts, this.c, this._items, {Key? key}) : super(key: key);
   final Function addToContacts;
   final Contact c;
   final Iterable<Item> _items;
@@ -261,7 +263,7 @@ class _ItemsTileState extends State<ItemsTile> {
       currentContact = '';
     }
     return widget._items.isEmpty
-        ? SizedBox()
+        ? const SizedBox()
         : WidgetAnimator(
             Card(
               child: ListTile(
@@ -274,9 +276,9 @@ class _ItemsTileState extends State<ItemsTile> {
                   }
                 },
                 leading: CircleAvatar(
-                    backgroundColor: Color(0xffbe3a5a),
+                    backgroundColor: const Color(0xffbe3a5a),
                     child: Text('${widget.c.displayName?[0]}'.toUpperCase(),
-                        style: TextStyle(color: Colors.white)),
+                        style: const TextStyle(color: Colors.white)),
                     radius: height * 0.025),
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -293,7 +295,7 @@ class _ItemsTileState extends State<ItemsTile> {
                           i,
                         ) {
                           if (currentContact == i.value!.replaceAll(" ", "")) {
-                            return Row();
+                            return const Row();
                           }
                           currentContact = i.value!.replaceAll(" ", "");
                           return Text(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:gosecure/Fake%20call/fake.dart';
 
 class FakeCall extends StatelessWidget {
@@ -17,14 +16,14 @@ class FakeCall extends StatelessWidget {
         child: InkWell(
           onTap: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Fake()));
+                .push(MaterialPageRoute(builder: (context) => const Fake()));
           },
           child: Container(
             height: 180,
             width: MediaQuery.of(context).size.width * 0.7,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                     colors: [Colors.purple, Colors.blue])),

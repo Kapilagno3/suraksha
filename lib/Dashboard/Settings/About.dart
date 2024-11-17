@@ -7,16 +7,16 @@ class AboutUs extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFAF7FA),
+      backgroundColor: const Color(0xFFFAF7FA),
       appBar: AppBar(
         title: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            const Text(
               "About Us",
               style: TextStyle(color: Colors.black, fontSize: 26),
             ),
-            SizedBox(
+            const SizedBox(
               width: 10,
             ),
             Image.asset(
@@ -33,7 +33,7 @@ class AboutUs extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: Colors.grey[200],
             child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_rounded,
                   color: Colors.grey,
                 ),
@@ -78,14 +78,14 @@ class AboutUs extends StatelessWidget {
                       child: Image.asset("assets/card.png", height: 30),
                     ),
                   ),
-                  trailing: Icon(Icons.arrow_forward_ios_rounded),
-                  title: Text("Licences")),
+                  trailing: const Icon(Icons.arrow_forward_ios_rounded),
+                  title: const Text("Licences")),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
-          Row(
+          const Row(
             children: [
               Expanded(
                 child: Divider(
@@ -102,7 +102,7 @@ class AboutUs extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           )
         ],

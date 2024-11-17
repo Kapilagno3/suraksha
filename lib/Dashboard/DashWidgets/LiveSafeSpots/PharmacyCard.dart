@@ -20,7 +20,7 @@ class PharmacyCard extends StatelessWidget {
               onTap: () {
                 openMapFunc("Pharmacies near me");
               },
-              child: Container(
+              child: SizedBox(
                   height: 50,
                   width: 50,
                   child: Center(
@@ -30,7 +30,7 @@ class PharmacyCard extends StatelessWidget {
                   ))),
             ),
           ),
-          Text("Pharmacies")
+          const Text("Pharmacies")
         ],
       ),
     );

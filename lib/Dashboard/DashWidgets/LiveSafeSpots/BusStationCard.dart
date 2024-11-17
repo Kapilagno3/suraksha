@@ -20,7 +20,7 @@ class BusStationCard extends StatelessWidget {
               onTap: () {
                 openMapFunc("Bus stops near me");
               },
-              child: Container(
+              child: SizedBox(
                   height: 50,
                   width: 50,
                   child: Center(
@@ -30,7 +30,7 @@ class BusStationCard extends StatelessWidget {
                   ))),
             ),
           ),
-          Text("Bus Stations")
+          const Text("Bus Stations")
         ],
       ),
     );

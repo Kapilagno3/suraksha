@@ -82,13 +82,13 @@ class LiveFeed extends StatefulWidget {
 }
 
 class _LiveFeedState extends State<LiveFeed> {
-  Vector3 _accelerometer = Vector3.zero();
-  Vector3 _gyroscope = Vector3.zero();
-  Vector3 _magnetometer = Vector3.zero();
-  Vector3 _userAaccelerometer = Vector3.zero();
-  Vector3 _orientation = Vector3.zero();
-  Vector3 _absoluteOrientation = Vector3.zero();
-  Vector3 _absoluteOrientation2 = Vector3.zero();
+  final Vector3 _accelerometer = Vector3.zero();
+  final Vector3 _gyroscope = Vector3.zero();
+  final Vector3 _magnetometer = Vector3.zero();
+  final Vector3 _userAaccelerometer = Vector3.zero();
+  final Vector3 _orientation = Vector3.zero();
+  final Vector3 _absoluteOrientation = Vector3.zero();
+  final Vector3 _absoluteOrientation2 = Vector3.zero();
   double _screenOrientation = 0;
 
   int _groupValue = 0;
@@ -160,14 +160,14 @@ class _LiveFeedState extends State<LiveFeed> {
         home: Scaffold(
             appBar: AppBar(
               leading: IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.black),
+                icon: const Icon(Icons.arrow_back, color: Colors.black),
                 onPressed: () => Navigator.of(context).pop(),
               ),
-              iconTheme: IconThemeData(
+              iconTheme: const IconThemeData(
                 color: Colors.black, //change your color here
               ),
               backgroundColor: Colors.white,
-              title: Text(
+              title: const Text(
                 "Real Time Detection",
                 style: TextStyle(color: Colors.black),
               ),
@@ -176,7 +176,7 @@ class _LiveFeedState extends State<LiveFeed> {
                 child: Stack(fit: StackFit.expand, children: [
               Container(
                 decoration: BoxDecoration(
-                  image: DecorationImage(
+                  image: const DecorationImage(
                     image: AssetImage(
                       'assets/bg-spy.jpg',
                     ),
@@ -202,93 +202,93 @@ class _LiveFeedState extends State<LiveFeed> {
                             onChanged: (dynamic value) => setUpdateInterval(
                                 value, Duration.microsecondsPerSecond ~/ 1),
                           ),
-                          Text("1 FPS"),
+                          const Text("1 FPS"),
                           Radio(
                             value: 2,
                             groupValue: _groupValue,
                             onChanged: (dynamic value) => setUpdateInterval(
                                 value, Duration.microsecondsPerSecond ~/ 30),
                           ),
-                          Text("30 FPS"),
+                          const Text("30 FPS"),
                           Radio(
                             value: 3,
                             groupValue: _groupValue,
                             onChanged: (dynamic value) => setUpdateInterval(
                                 value, Duration.microsecondsPerSecond ~/ 60),
                           ),
-                          Text("60 FPS"),
+                          const Text("60 FPS"),
                         ],
                       ),
-                      Text('Accelerometer'),
+                      const Text('Accelerometer'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('${_accelerometer.x.toStringAsFixed(4)}'),
-                          Text('${_accelerometer.y.toStringAsFixed(4)}'),
-                          Text('${_accelerometer.z.toStringAsFixed(4)}'),
+                          Text(_accelerometer.x.toStringAsFixed(4)),
+                          Text(_accelerometer.y.toStringAsFixed(4)),
+                          Text(_accelerometer.z.toStringAsFixed(4)),
                         ],
                       ),
-                      Text('Magnetometer'),
+                      const Text('Magnetometer'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('${_magnetometer.x.toStringAsFixed(4)}'),
-                          Text('${_magnetometer.y.toStringAsFixed(4)}'),
-                          Text('${_magnetometer.z.toStringAsFixed(4)}'),
+                          Text(_magnetometer.x.toStringAsFixed(4)),
+                          Text(_magnetometer.y.toStringAsFixed(4)),
+                          Text(_magnetometer.z.toStringAsFixed(4)),
                         ],
                       ),
-                      Text('Gyroscope'),
+                      const Text('Gyroscope'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('${_gyroscope.x.toStringAsFixed(4)}'),
-                          Text('${_gyroscope.y.toStringAsFixed(4)}'),
-                          Text('${_gyroscope.z.toStringAsFixed(4)}'),
+                          Text(_gyroscope.x.toStringAsFixed(4)),
+                          Text(_gyroscope.y.toStringAsFixed(4)),
+                          Text(_gyroscope.z.toStringAsFixed(4)),
                         ],
                       ),
-                      Text('User Accelerometer'),
+                      const Text('User Accelerometer'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('${_userAaccelerometer.x.toStringAsFixed(4)}'),
-                          Text('${_userAaccelerometer.y.toStringAsFixed(4)}'),
-                          Text('${_userAaccelerometer.z.toStringAsFixed(4)}'),
+                          Text(_userAaccelerometer.x.toStringAsFixed(4)),
+                          Text(_userAaccelerometer.y.toStringAsFixed(4)),
+                          Text(_userAaccelerometer.z.toStringAsFixed(4)),
                         ],
                       ),
-                      Text('Orientation'),
+                      const Text('Orientation'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
-                          Text('${degrees(_orientation.x).toStringAsFixed(4)}'),
-                          Text('${degrees(_orientation.y).toStringAsFixed(4)}'),
-                          Text('${degrees(_orientation.z).toStringAsFixed(4)}'),
+                          Text(degrees(_orientation.x).toStringAsFixed(4)),
+                          Text(degrees(_orientation.y).toStringAsFixed(4)),
+                          Text(degrees(_orientation.z).toStringAsFixed(4)),
                         ],
                       ),
-                      Text('Absolute Orientation'),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Text(
-                              '${degrees(_absoluteOrientation.x).toStringAsFixed(4)}'),
-                          Text(
-                              '${degrees(_absoluteOrientation.y).toStringAsFixed(4)}'),
-                          Text(
-                              '${degrees(_absoluteOrientation.z).toStringAsFixed(4)}'),
-                        ],
-                      ),
-                      Text('Orientation (accelerometer + magnetometer)'),
+                      const Text('Absolute Orientation'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[
                           Text(
-                              '${degrees(_absoluteOrientation2.x).toStringAsFixed(4)}'),
+                              degrees(_absoluteOrientation.x).toStringAsFixed(4)),
                           Text(
-                              '${degrees(_absoluteOrientation2.y).toStringAsFixed(4)}'),
+                              degrees(_absoluteOrientation.y).toStringAsFixed(4)),
                           Text(
-                              '${degrees(_absoluteOrientation2.z).toStringAsFixed(4)}'),
+                              degrees(_absoluteOrientation.z).toStringAsFixed(4)),
                         ],
                       ),
-                      SizedBox(
+                      const Text('Orientation (accelerometer + magnetometer)'),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Text(
+                              degrees(_absoluteOrientation2.x).toStringAsFixed(4)),
+                          Text(
+                              degrees(_absoluteOrientation2.y).toStringAsFixed(4)),
+                          Text(
+                              degrees(_absoluteOrientation2.z).toStringAsFixed(4)),
+                        ],
+                      ),
+                      const SizedBox(
                         height: 50,
                       ),
                       Text(

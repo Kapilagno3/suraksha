@@ -6,7 +6,7 @@ import 'package:gosecure/Dashboard/Articles%20-%20SafeCarousel/SadeWebView.dart'
 import 'package:gosecure/constants.dart';
 
 class AllArticles extends StatefulWidget {
-  AllArticles({required Key key}) : super(key: key);
+  const AllArticles({required Key key}) : super(key: key);
 
   @override
   _AllArticlesState createState() => _AllArticlesState();
@@ -36,7 +36,7 @@ class _AllArticlesState extends State<AllArticles>
         child: Stack(fit: StackFit.expand, children: [
           Container(
             decoration: BoxDecoration(
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: AssetImage(
                   'assets/bg-top.png',
                 ),
@@ -73,7 +73,7 @@ class _AllArticlesState extends State<AllArticles>
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
-                          child: Container(
+                          child: SizedBox(
                             height: 180,
                             child: InkWell(
                               onTap: () {

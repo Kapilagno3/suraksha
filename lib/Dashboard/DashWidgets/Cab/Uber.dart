@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:android_intent_plus/android_intent.dart';
 
 class UberCard extends StatelessWidget {
   const UberCard({required Key key}) : super(key: key);
@@ -36,7 +35,7 @@ class UberCard extends StatelessWidget {
         DeviceApps.openApp("com.ubercab");
       } else {
         ///if the app is not installed it lunches google play store so you can install it from there
-        launch("market://details?id=" + "com.ubercab");
+        launch("market://details?id=" "com.ubercab");
       }
     } catch (e) {
       print(e);
@@ -57,7 +56,7 @@ class UberCard extends StatelessWidget {
               onTap: () {
                 _openUber();
               },
-              child: Container(
+              child: SizedBox(
                   height: 50,
                   width: 50,
                   child: Center(
@@ -67,7 +66,7 @@ class UberCard extends StatelessWidget {
                   ))),
             ),
           ),
-          Text("Uber")
+          const Text("Uber")
         ],
       ),
     );

@@ -17,14 +17,14 @@ class Defence extends StatelessWidget {
         child: InkWell(
           onTap: () {
             Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => Ho()));
+                .push(MaterialPageRoute(builder: (context) => const Ho()));
           },
           child: Container(
             height: 180,
             width: MediaQuery.of(context).size.width * 0.7,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                     colors: [Colors.purple, Colors.blue])),

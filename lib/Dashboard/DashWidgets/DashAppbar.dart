@@ -7,7 +7,7 @@ import 'package:gosecure/constants.dart';
 class DashAppbar extends StatefulWidget {
   final Function getRandomInt;
   final int quoteIndex;
-  DashAppbar(
+  const DashAppbar(
       {required Key key, required this.getRandomInt, required this.quoteIndex})
       : super(key: key);
 
@@ -50,7 +50,7 @@ class _DashAppbarState extends State<DashAppbar> {
       ),
       trailing: Card(
         elevation: 4,
-        shape: CircleBorder(),
+        shape: const CircleBorder(),
         child: InkWell(
           onTap: () {
             Navigator.push(

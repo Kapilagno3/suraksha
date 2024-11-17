@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class Ho extends StatefulWidget {
+  const Ho({Key? key}) : super(key: key);
+
   @override
   _HoState createState() => _HoState();
 }
@@ -33,16 +35,16 @@ class _HoState extends State<Ho> {
   @override
   void initState() {
     super.initState();
-    urls.forEach((url) {
+    for (var url in urls) {
       var controller = YoutubePlayerController(
         initialVideoId: YoutubePlayer.convertUrlToId(url)!,
-        flags: YoutubePlayerFlags(
+        flags: const YoutubePlayerFlags(
           autoPlay: false,
           mute: false,
         ),
       );
       _controllers.add(controller);
-    });
+    }
   }
 
   Widget buildController(int no) {
@@ -57,14 +59,14 @@ class _HoState extends State<Ho> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black, //change your color here
         ),
         backgroundColor: Colors.white,
-        title: Text(
+        title: const Text(
           "Self Defence Techniques",
           style: TextStyle(color: Colors.black),
         ),
@@ -74,21 +76,21 @@ class _HoState extends State<Ho> {
           child: Column(
             children: <Widget>[
               buildController(0),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               buildController(1),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               buildController(2),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               buildController(3),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               buildController(4),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               buildController(5),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               buildController(6),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
               buildController(7),
-              SizedBox(height: 10.0),
+              const SizedBox(height: 10.0),
             ],
           ),
         ),

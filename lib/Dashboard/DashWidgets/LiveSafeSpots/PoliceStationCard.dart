@@ -19,7 +19,7 @@ class PoliceStationCard extends StatelessWidget {
               onTap: () {
                 openMapFunc("Police Stations near me");
               },
-              child: Container(
+              child: SizedBox(
                   height: 50,
                   width: 50,
                   child: Center(
@@ -29,7 +29,7 @@ class PoliceStationCard extends StatelessWidget {
                   ))),
             ),
           ),
-          Text("Police Stations")
+          const Text("Police Stations")
         ],
       ),
     );

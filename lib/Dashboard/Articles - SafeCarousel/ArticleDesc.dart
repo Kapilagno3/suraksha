@@ -3,7 +3,7 @@ import 'package:gosecure/constants.dart';
 
 class ArticleDesc extends StatelessWidget {
   final int index;
-  ArticleDesc({required Key key, required this.index}) : super(key: key);
+  const ArticleDesc({required Key key, required this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class ArticleDesc extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios_rounded,
             color: Colors.black,
           ),
@@ -33,8 +33,8 @@ class ArticleDesc extends StatelessWidget {
               style: TextStyle(color: Colors.grey[600], fontSize: 14),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
               "Protecting each other at work in markets",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -47,7 +47,7 @@ class ArticleDesc extends StatelessWidget {
                 child: Image.asset("assets/un.png"),
               ),
             ),
-            title: Text("UN WOMEN"),
+            title: const Text("UN WOMEN"),
           ),
           ArticleImage(
             imageStr:

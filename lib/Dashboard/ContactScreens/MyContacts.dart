@@ -14,11 +14,11 @@ class _MyContactsScreenState extends State<MyContactsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFAFCFE),
+      backgroundColor: const Color(0xFFFAFCFE),
       appBar: AppBar(
           centerTitle: true,
           elevation: 0,
-          title: Text(
+          title: const Text(
             "SOS Contacts",
             style: TextStyle(
                 fontSize: 26, fontWeight: FontWeight.w900, color: Colors.black),
@@ -34,8 +34,8 @@ class _MyContactsScreenState extends State<MyContactsScreen> {
             if (snap.hasData && snap.data!.isNotEmpty) {
               return Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 8.0),
                     child: Row(
                       children: [
                         Expanded(
@@ -59,14 +59,14 @@ class _MyContactsScreenState extends State<MyContactsScreen> {
                       itemCount: snap.data!.length,
                       itemBuilder: (context, index) {
                         return Slidable(
-                          actionPane: SlidableDrawerActionPane(),
+                          actionPane: const SlidableDrawerActionPane(),
                           actionExtentRatio: 0.25,
                           child: Container(
                             color: Colors.white,
                             child: ListTile(
                               leading: CircleAvatar(
                                 backgroundColor: Colors.grey[200],
-                                backgroundImage: AssetImage("assets/user.png"),
+                                backgroundImage: const AssetImage("assets/user.png"),
                               ),
                               title: Text(snap.data![index].split("***")[0] ??
                                   "No Name"),
@@ -97,13 +97,13 @@ class _MyContactsScreenState extends State<MyContactsScreen> {
                       },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                 ],
               );
             } else {
-              return Center(
+              return const Center(
                 child: Text("No Contacts found!"),
               );
             }
