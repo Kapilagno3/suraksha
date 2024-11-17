@@ -29,12 +29,12 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFAFCFE),
+      backgroundColor: const Color(0xFFFAFCFE),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
         leading: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios_rounded,
               color: Colors.black,
             ),
@@ -49,7 +49,7 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
             padding: const EdgeInsets.all(18.0),
             child: Text(
               widget.pin == -1111 ? "Create PIN" : "Change PIN",
-              style: TextStyle(fontSize: 35, fontWeight: FontWeight.w900),
+              style: const TextStyle(fontSize: 35, fontWeight: FontWeight.w900),
             ),
           ),
           Center(
@@ -65,7 +65,7 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
               children: [
                 Container(
                   margin: const EdgeInsets.only(left: 35.0, right: 20),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Text("Current Pin"),
                       Expanded(
@@ -108,7 +108,7 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
           ),
           Container(
             margin: const EdgeInsets.only(left: 35.0, right: 20),
-            child: Row(
+            child: const Row(
               children: [
                 Text("New Pin"),
                 Expanded(
@@ -142,7 +142,7 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
               ),
             ),
           ),
-          SizedBox(height: 100),
+          const SizedBox(height: 100),
           Visibility(
               visible: pinChanged,
               child: Center(
@@ -165,7 +165,7 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.deepPurpleAccent,
                       ),
-                      child: Center(
+                      child: const Center(
                           child: Text(
                         "Done",
                         style: TextStyle(
@@ -188,14 +188,14 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
         return;
       }
       if (currentPin != widget.pin.toString()) {
-        final snackBar = SnackBar(
-          duration: const Duration(seconds: 10),
-          content: Container(
+        const snackBar = SnackBar(
+          duration: Duration(seconds: 10),
+          content: SizedBox(
             height: 20.0,
             child: Center(
               child: Text(
                 'Current Pin doesnt match! Please try again.',
-                style: const TextStyle(fontSize: 16.0),
+                style: TextStyle(fontSize: 16.0),
               ),
             ),
           ),
@@ -220,7 +220,7 @@ class _ChangePinScreenState extends State<ChangePinScreen> {
   void changePinSnakBar(pin) {
     final snackBar = SnackBar(
       duration: const Duration(seconds: 10),
-      content: Container(
+      content: SizedBox(
         height: 20.0,
         child: Center(
           child: Text(

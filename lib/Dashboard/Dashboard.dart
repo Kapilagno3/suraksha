@@ -19,7 +19,6 @@ import 'package:gosecure/Dashboard/Home.dart';
 import 'package:gosecure/Dashboard/ContactScreens/MyContacts.dart';
 import 'package:sms_advanced/sms_advanced.dart';
 // import 'package:telephony/telephony.dart';
-import 'package:another_telephony/telephony.dart';
 import 'package:vibration/vibration.dart';
 
 class Dashboard extends StatefulWidget {
@@ -45,7 +44,7 @@ class _DashboardState extends State<Dashboard> {
   ];
   bool alerted = false;
   // int currentPage = 0;
-  var _battery = Battery();
+  final _battery = Battery();
   final TextEditingController _pinPutController = TextEditingController();
   final FocusNode _pinPutFocusNode = FocusNode();
   bool pinChanged = false;
@@ -67,7 +66,7 @@ class _DashboardState extends State<Dashboard> {
             Vibration.vibrate(duration: 1000);
           } else {
             Vibration.vibrate();
-            await Future.delayed(Duration(milliseconds: 500));
+            await Future.delayed(const Duration(milliseconds: 500));
             Vibration.vibrate();
           }
         }
@@ -82,11 +81,9 @@ class _DashboardState extends State<Dashboard> {
 
           if (numbers.isEmpty) {
             debugPrint('No Contacts Found!');
-            if (SchedulerBinding.instance != null) {
-              SchedulerBinding.instance!
-                  .addPostFrameCallback((_) => showLocAlert(context));
-            }
-            return;
+            SchedulerBinding.instance
+                .addPostFrameCallback((_) => showLocAlert(context));
+                      return;
           } else {
             for (String number in numbers) {
               if (alerted) {
@@ -122,22 +119,23 @@ class _DashboardState extends State<Dashboard> {
   late final SharedPreferences prefs;
   checkAlertSharedPreferences() async {
     prefs = await SharedPreferences.getInstance();
-    if (mounted)
+    if (mounted) {
       setState(() {
         alerted = prefs.getBool("alerted") ?? false;
       });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFAFCFE),
+      backgroundColor: const Color(0xFFFAFCFE),
       floatingActionButton: currentPage == 1
           ? FloatingActionButton(
               backgroundColor: Colors.white,
               onPressed: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => PhoneBook()));
+                    MaterialPageRoute(builder: (context) => const PhoneBook()));
               },
               child: Image.asset(
                 "assets/add-contact.png",
@@ -167,7 +165,7 @@ class _DashboardState extends State<Dashboard> {
                           "assets/alarm.png",
                           height: 24,
                         ),
-                        Text(
+                        const Text(
                           "STOP",
                           style: TextStyle(color: Colors.black),
                         )
@@ -180,19 +178,20 @@ class _DashboardState extends State<Dashboard> {
             ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 12,
-        child: Container(
+        child: SizedBox(
           height: 60,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               InkWell(
                   onTap: () {
-                    if (currentPage != 0)
+                    if (currentPage != 0) {
                       setState(() {
                         currentPage = 0;
                       });
+                    }
                   },
                   child: Image.asset(
                     "assets/home.png",
@@ -200,10 +199,11 @@ class _DashboardState extends State<Dashboard> {
                   )),
               InkWell(
                   onTap: () {
-                    if (currentPage != 1)
+                    if (currentPage != 1) {
                       setState(() {
                         currentPage = 1;
                       });
+                    }
                   },
                   child: Image.asset("assets/phone_red.png", height: 28)),
             ],
@@ -289,7 +289,7 @@ class _DashboardState extends State<Dashboard> {
     List<String> numbers = prefs.getStringList("numbers") ?? [];
     LocationData? myLocation;
     String error;
-    Location location = new Location();
+    Location location = Location();
     String link = '';
     try {
       myLocation = await location.getLocation();
@@ -348,7 +348,7 @@ class _DashboardState extends State<Dashboard> {
         builder: (context) {
           return Container(
             height: MediaQuery.of(context).size.height / 2.7,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
                 topLeft: Radius.circular(20),
@@ -357,8 +357,8 @@ class _DashboardState extends State<Dashboard> {
             ),
             child: Column(
               children: [
-                SizedBox(height: 15),
-                Row(
+                const SizedBox(height: 15),
+                const Row(
                   children: [
                     Expanded(
                       child: Divider(

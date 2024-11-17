@@ -1,13 +1,12 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:wakelock/wakelock.dart';
-
 import 'fake_incoming_call_screen.dart';
 
 class InstructionScreen extends StatefulWidget {
-  static final String route = '/fakeCallSupport';
+  static const String route = '/fakeCallSupport';
+
+  const InstructionScreen({Key? key}) : super(key: key);
 
   @override
   _InstructionScreenState createState() => _InstructionScreenState();
@@ -51,7 +50,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
         key: _scaffoldKey,
         body: Container(
             height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                   image: ExactAssetImage('assets/mapImage.jpg'),
                   fit: BoxFit.cover),
@@ -59,7 +58,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
             child: ListView(
               shrinkWrap: true,
               children: <Widget>[
-                SizedBox(
+                const SizedBox(
                   height: 25.0,
                 ),
                 Container(
@@ -68,7 +67,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Row(
+                    child: const Row(
                       children: <Widget>[
                         Icon(
                           Icons.keyboard_arrow_left,
@@ -85,21 +84,21 @@ class _InstructionScreenState extends State<InstructionScreen> {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(left: 15.0, top: 10.0),
-                  child: Text(
+                  padding: const EdgeInsets.only(left: 15.0, top: 10.0),
+                  child: const Text(
                     'Fake Call',
                     style: TextStyle(color: Colors.white, fontSize: 25.0),
                   ),
                 ),
                 Container(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 15.0,
                       right: 10.0,
                       top: 20.0,
                     ),
                     child: RichText(
                         textAlign: TextAlign.justify,
-                        text: TextSpan(children: <TextSpan>[
+                        text: const TextSpan(children: <TextSpan>[
                           TextSpan(
                               text:
                                   'Call yourself using a fake name to get out ',
@@ -118,23 +117,23 @@ class _InstructionScreenState extends State<InstructionScreen> {
                         ]))),
                 Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(left: 15.0, right: 15.0, top: 30.0),
+                  margin: const EdgeInsets.only(left: 15.0, right: 15.0, top: 30.0),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
                     color: Colors.white70,
                   ),
                   child: TextField(
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20.0),
+                    style: const TextStyle(fontSize: 20.0),
                     controller: _fakeName,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Enter Fake Caller Name',
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(
+                  margin: const EdgeInsets.only(
                     left: 20.0,
                     right: 20.0,
                     top: 20.0,
@@ -149,7 +148,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(top: 20.0),
+                  margin: const EdgeInsets.only(top: 20.0),
                   width: MediaQuery.of(context).size.width / 2,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -160,7 +159,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
                       ),
                     ),
                     onPressed: _activateBtnStatus ? readyForCall : null,
-                    child: Text(
+                    child: const Text(
                       'Activate',
                       style: TextStyle(
                         color: Colors.white,
@@ -194,7 +193,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
                     ),
                     Expanded(
                       child: Text(textValues[value],
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                           )),
                     ),
@@ -215,7 +214,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
 
       if (selectedValue > 0) {
         ScaffoldMessenger.of(_scaffoldKey.currentContext!).showSnackBar(SnackBar(
-            duration: Duration(seconds: 10),
+            duration: const Duration(seconds: 10),
             content: Text(
                 "Wait for ${textValues[selectedValue]} ... Don't switch to other screen")));
       }
@@ -229,7 +228,7 @@ class _InstructionScreenState extends State<InstructionScreen> {
     } else {
       showDialog<String>(
           context: _scaffoldKey.currentContext!,
-          builder: (context) => AlertDialog(
+          builder: (context) => const AlertDialog(
                 backgroundColor: Colors.black54,
                 title: Text(
                   'Fake caller Name Empty',

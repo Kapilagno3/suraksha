@@ -59,7 +59,7 @@ class _SafeHomeState extends State<SafeHome> {
     List<String> numbers = prefs.getStringList("numbers") ?? [];
     LocationData? myLocation;
     String error;
-    Location location = new Location();
+    Location location = Location();
     String link = '';
     try {
       myLocation = await location.getLocation();
@@ -186,14 +186,14 @@ class _SafeHomeState extends State<SafeHome> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ListTile(
+                      const ListTile(
                         title: Text("Get Home Safe"),
                         subtitle: Text("Share Location Periodically"),
                       ),
                       Visibility(
                         visible: getHomeSafeActivated,
-                        child: Padding(
-                            padding: const EdgeInsets.all(18.0),
+                        child: const Padding(
+                            padding: EdgeInsets.all(18.0),
                             child: Row(
                               children: [
                                 SpinKitDoubleBounce(
@@ -238,7 +238,7 @@ class _SafeHomeState extends State<SafeHome> {
             builder: (BuildContext context, StateSetter setModalState) {
               return Container(
                 height: MediaQuery.of(context).size.height / 1.4,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
@@ -247,8 +247,8 @@ class _SafeHomeState extends State<SafeHome> {
                 ),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10.0),
                       child: Row(
                         children: [
                           Expanded(
@@ -266,10 +266,10 @@ class _SafeHomeState extends State<SafeHome> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 15),
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFFF5F4F6)),
+                          color: const Color(0xFFF5F4F6)),
                       child: SwitchListTile(
                         secondary: Lottie.asset("assets/routes.json"),
                         value: getHomeActivated,
@@ -284,7 +284,7 @@ class _SafeHomeState extends State<SafeHome> {
                           });
                           if (getHomeActivated) {
                             changeStateOfHomeSafe(true);
-                            timer = Timer.periodic(Duration(minutes: 15),
+                            timer = Timer.periodic(const Duration(minutes: 15),
                                 (Timer t) => sendPeriodicMsg());
                           } else {
                             changeStateOfHomeSafe(false);
@@ -292,7 +292,7 @@ class _SafeHomeState extends State<SafeHome> {
                             // await Workmanager().cancelByTag("3");
                           }
                         },
-                        subtitle: Text(
+                        subtitle: const Text(
                             "Your location will be shared with one of your contacts every 15 minutes"),
                       ),
                     ),
@@ -306,7 +306,7 @@ class _SafeHomeState extends State<SafeHome> {
                                 return ListView.separated(
                                     itemCount: snapshot.data!.length,
                                     separatorBuilder: (context, index) {
-                                      return Divider(
+                                      return const Divider(
                                         indent: 20,
                                         endIndent: 20,
                                       );
@@ -320,7 +320,7 @@ class _SafeHomeState extends State<SafeHome> {
                                             selectedContact = index;
                                           });
                                         },
-                                        leading: CircleAvatar(
+                                        leading: const CircleAvatar(
                                           backgroundImage:
                                               AssetImage("assets/user.png"),
                                         ),
@@ -329,7 +329,7 @@ class _SafeHomeState extends State<SafeHome> {
                                         subtitle:
                                             Text(contactData.split("***")[1]),
                                         trailing: selectedContact == index
-                                            ? Icon(
+                                            ? const Icon(
                                                 Icons.check_circle,
                                                 color: Colors.green,
                                               )
@@ -343,14 +343,14 @@ class _SafeHomeState extends State<SafeHome> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => PhoneBook(),
+                                        builder: (context) => const PhoneBook(),
                                       ),
                                     );
                                   },
-                                  title: Text("No contact found!"),
+                                  title: const Text("No contact found!"),
                                   subtitle:
-                                      Text("Please add atleast one Contact"),
-                                  trailing: Icon(
+                                      const Text("Please add atleast one Contact"),
+                                  trailing: const Icon(
                                       Icons.arrow_forward_ios_rounded,
                                       color: Colors.grey),
                                 );

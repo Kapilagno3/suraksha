@@ -5,12 +5,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:alan_voice/alan_voice.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:blurry/blurry.dart';
-import 'package:flutter_glow/flutter_glow.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:battery_plus/battery_plus.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:gosecure/Dashboard/ContactScreens/phonebook_view.dart';
 import 'package:gosecure/Dashboard/DashWidgets/Scream.dart';
 import 'package:gosecure/Dashboard/Dashboard.dart';
@@ -26,7 +23,6 @@ import 'package:gosecure/Dashboard/DashWidgets/LiveSafe.dart';
 import 'package:gosecure/Dashboard/Articles%20-%20SafeCarousel/SafeCarousel.dart';
 import 'package:gosecure/Dashboard/DashWidgets/OtherFeature.dart';
 import 'package:gosecure/Dashboard/DashWidgets/SafeHome.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../HiddenCamera/detection.dart';
 
@@ -66,7 +62,7 @@ class _HomeState extends State<Home> {
     switch (response["command"]) {
       case "fakenow":
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => Fake()));
+            .push(MaterialPageRoute(builder: (context) => const Fake()));
         break;
       case "siren":
         if (alertState) {
@@ -111,11 +107,11 @@ class _HomeState extends State<Home> {
         break;
       case "contact":
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => PhoneBook()));
+            .push(MaterialPageRoute(builder: (context) => const PhoneBook()));
         break;
       case "defence":
         Navigator.of(context)
-            .push(MaterialPageRoute(builder: (context) => Ho()));
+            .push(MaterialPageRoute(builder: (context) => const Ho()));
         break;
       case "setting":
         Navigator.of(context).push(MaterialPageRoute(
@@ -192,7 +188,7 @@ class _HomeState extends State<Home> {
                     ),
                   );
                 },
-                child: Align(
+                child: const Align(
                     alignment: Alignment.topRight,
                     child: Text("See More", textAlign: TextAlign.end)),
               ),
@@ -221,14 +217,14 @@ class _HomeState extends State<Home> {
                         glowColor: Colors.redAccent[700] ?? Colors.redAccent,
                         //  Colors.redAccent[700] ?? colors.redAccent,
                         endRadius: 90.0,
-                        duration: Duration(milliseconds: 2000),
+                        duration: const Duration(milliseconds: 2000),
                         repeat: true,
                         showTwoGlows: true,
-                        repeatPauseDuration: Duration(milliseconds: 100),
+                        repeatPauseDuration: const Duration(milliseconds: 100),
                         child: Material(
                           // Replace this child with your own
                           elevation: 8.0,
-                          shape: CircleBorder(),
+                          shape: const CircleBorder(),
                           child: CircleAvatar(
                             backgroundColor: Colors.redAccent[100],
                             child: Image.asset(
@@ -242,10 +238,10 @@ class _HomeState extends State<Home> {
                     ),
                     Expanded(
                       child: Container(
-                          padding: EdgeInsets.all(10),
-                          margin: EdgeInsets.only(left: 0),
+                          padding: const EdgeInsets.all(10),
+                          margin: const EdgeInsets.only(left: 0),
                           height: 60,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(20),
                                 bottomLeft: Radius.circular(20)),
@@ -261,7 +257,7 @@ class _HomeState extends State<Home> {
                           ),
                           width: MediaQuery.of(context).size.width / 1.8,
                           // color: Colors.orange,
-                          child: Row(
+                          child: const Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Icon(
@@ -270,7 +266,7 @@ class _HomeState extends State<Home> {
                                 color: Colors.white,
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(right: 42.0),
+                                padding: EdgeInsets.only(right: 42.0),
                                 child: Text(
                                   "Danger Siren",
                                   style: TextStyle(
@@ -287,15 +283,15 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             "Emergency",
                             style: TextStyle(
@@ -307,16 +303,16 @@ class _HomeState extends State<Home> {
                   ],
                 ),
               ),
-              Emergency(),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              const Emergency(),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             "Other Features",
                             style: TextStyle(
@@ -395,8 +391,8 @@ class _HomeState extends State<Home> {
               //     ],
               //   ),
               // ),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, bottom: 10, top: 10),
+              const Padding(
+                padding: EdgeInsets.only(left: 16.0, bottom: 10, top: 10),
                 child: Text(
                   "Book Cab",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -406,8 +402,8 @@ class _HomeState extends State<Home> {
                 key: UniqueKey(),
               ),
 
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, bottom: 10, top: 10),
+              const Padding(
+                padding: EdgeInsets.only(left: 16.0, bottom: 10, top: 10),
                 child: Text(
                   "Explore LiveSafe",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -416,8 +412,8 @@ class _HomeState extends State<Home> {
               LiveSafe(
                 key: UniqueKey(),
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 16.0, bottom: 10, top: 10),
+              const Padding(
+                padding: EdgeInsets.only(left: 16.0, bottom: 10, top: 10),
                 child: Text(
                   "Be Nirbhaya With",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
@@ -429,7 +425,7 @@ class _HomeState extends State<Home> {
               SafeHome(
                 key: UniqueKey(),
               ),
-              SwipeButtonDemo(
+              const SwipeButtonDemo(
                 pageRoute: "/fifth",
                 buttonTitle: "Swipe to report incident",
               ),
@@ -542,9 +538,10 @@ class _HomeState extends State<Home> {
   _openrl(String url) async {
     // List<Application> apps = await DeviceApps.getInstalledApplications();
     // DeviceApps.openApp("com.ubercab");
-    if (await canLaunch(url))
+    if (await canLaunch(url)) {
       await launch(url);
-    else
+    } else {
       throw 'Could not launch $url';
+    }
   }
 }

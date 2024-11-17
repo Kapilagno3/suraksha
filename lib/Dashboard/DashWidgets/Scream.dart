@@ -66,15 +66,16 @@ class _ScreamState extends State<Scream> {
     // }
   }
 
+  @override
   void dispose() {
     _noiseSubscription?.cancel();
     super.dispose();
   }
 
   void onData(NoiseReading noiseReading) {
-    this.setState(() {
-      if (!this._isRecording) {
-        this._isRecording = true;
+    setState(() {
+      if (!_isRecording) {
+        _isRecording = true;
       }
     });
     print(noiseReading.toString());
@@ -141,7 +142,7 @@ class _ScreamState extends State<Scream> {
     List<String> numbers = prefs.getStringList("numbers") ?? [];
     LocationData? myLocation;
     String error;
-    Location location = new Location();
+    Location location = Location();
     String link = '';
     try {
       myLocation = await location.getLocation();
@@ -267,14 +268,14 @@ class _ScreamState extends State<Scream> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      ListTile(
+                      const ListTile(
                         title: Text("Scream Alert"),
                         subtitle: Text("Detects scream to send alerts"),
                       ),
                       Visibility(
                         visible: _isRecording,
-                        child: Padding(
-                            padding: const EdgeInsets.all(18.0),
+                        child: const Padding(
+                            padding: EdgeInsets.all(18.0),
                             child: Row(
                               children: [
                                 SpinKitDoubleBounce(
@@ -319,7 +320,7 @@ class _ScreamState extends State<Scream> {
             builder: (BuildContext context, StateSetter setModalState) {
               return Container(
                 height: MediaQuery.of(context).size.height / 1.4,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
@@ -328,8 +329,8 @@ class _ScreamState extends State<Scream> {
                 ),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10.0),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10.0),
                       child: Row(
                         children: [
                           Expanded(
@@ -347,10 +348,10 @@ class _ScreamState extends State<Scream> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(horizontal: 15),
+                      margin: const EdgeInsets.symmetric(horizontal: 15),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Color(0xFFF5F4F6)),
+                          color: const Color(0xFFF5F4F6)),
                       child: SwitchListTile(
                         secondary: Lottie.asset("assets/routes.json"),
                         value: getHomeActivated,
@@ -367,7 +368,7 @@ class _ScreamState extends State<Scream> {
                             // await Workmanager().cancelByTag("3");
                           }
                         },
-                        subtitle: Text("Get safe anywhere with scream alert"),
+                        subtitle: const Text("Get safe anywhere with scream alert"),
                       ),
                     ),
                     Expanded(
@@ -380,7 +381,7 @@ class _ScreamState extends State<Scream> {
                                 return ListView.separated(
                                     itemCount: snapshot.data!.length,
                                     separatorBuilder: (context, index) {
-                                      return Divider(
+                                      return const Divider(
                                         indent: 20,
                                         endIndent: 20,
                                       );
@@ -394,7 +395,7 @@ class _ScreamState extends State<Scream> {
                                               selectedContact = index;
                                             });
                                           },
-                                          leading: CircleAvatar(
+                                          leading: const CircleAvatar(
                                             backgroundImage:
                                                 AssetImage("assets/user.png"),
                                           ),
@@ -402,7 +403,7 @@ class _ScreamState extends State<Scream> {
                                               Text(contactData.split("***")[0]),
                                           subtitle:
                                               Text(contactData.split("***")[1]),
-                                          trailing: Icon(
+                                          trailing: const Icon(
                                             Icons.check_circle,
                                             color: Colors.green,
                                           ));
@@ -414,14 +415,14 @@ class _ScreamState extends State<Scream> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) => PhoneBook(),
+                                        builder: (context) => const PhoneBook(),
                                       ),
                                     );
                                   },
-                                  title: Text("No contact found!"),
+                                  title: const Text("No contact found!"),
                                   subtitle:
-                                      Text("Please add atleast one Contact"),
-                                  trailing: Icon(
+                                      const Text("Please add atleast one Contact"),
+                                  trailing: const Icon(
                                       Icons.arrow_forward_ios_rounded,
                                       color: Colors.grey),
                                 );

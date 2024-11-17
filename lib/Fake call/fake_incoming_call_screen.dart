@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 
 // ignore: must_be_immutable
 class FakeCallScreen extends StatefulWidget {
-  static final String route = '/fakeCallScreen';
+  static const String route = '/fakeCallScreen';
 
   final String fakeCallerName;
 
   // FakeCallScreen();
-  FakeCallScreen({required this.fakeCallerName});
+  const FakeCallScreen({Key? key, required this.fakeCallerName}) : super(key: key);
 
   @override
   _FakeCallScreenState createState() => _FakeCallScreenState();
@@ -53,50 +52,50 @@ class _FakeCallScreenState extends State<FakeCallScreen> {
               FlutterRingtonePlayer.stop();
               Navigator.pop(context);
             },
-            child: Icon(
+            child: const Icon(
               Icons.call_end_rounded,
             ),
           ),
           FloatingActionButton(
             heroTag: 2,
-            backgroundColor: Color.fromRGBO(0, 250, 0, 0.9),
+            backgroundColor: const Color.fromRGBO(0, 250, 0, 0.9),
             onPressed: () {},
-            child: Icon(
+            child: const Icon(
               Icons.phone,
             ),
           ),
         ],
       ),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
               image: ExactAssetImage('assets/fakeCallBG.jpg'),
               fit: BoxFit.cover),
         ),
         child: Column(
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 100.0,
             ),
             Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.all(20.0),
-              decoration: BoxDecoration(
+              padding: const EdgeInsets.all(20.0),
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.black,
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.person,
                 size: 50.0,
-                color: const Color.fromRGBO(253, 200, 4, 1.0),
+                color: Color.fromRGBO(253, 200, 4, 1.0),
               ),
             ),
             Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.only(top: 10.0),
+              margin: const EdgeInsets.only(top: 10.0),
               child: Text(
                 fakeCallerName,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 25.0,
                 ),

@@ -1,10 +1,7 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 import 'package:gosecure/HiddenCamera/detection.dart';
 
-import '../../../main.dart';
 
 class CameraDetection extends StatelessWidget {
   const CameraDetection({required Key key}) : super(key: key);
@@ -30,7 +27,7 @@ class CameraDetection extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.7,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
-                gradient: LinearGradient(
+                gradient: const LinearGradient(
                     begin: Alignment.centerLeft,
                     end: Alignment.centerRight,
                     colors: [Colors.purple, Colors.blue])),

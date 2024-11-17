@@ -101,7 +101,7 @@ void onStart() async {
           } else {
             print("Test 4");
             Vibration.vibrate();
-            await Future.delayed(Duration(milliseconds: 500));
+            await Future.delayed(const Duration(milliseconds: 500));
             Vibration.vibrate();
           }
           print("Test 5");
@@ -154,7 +154,7 @@ void onStart() async {
       });
   print("Test 12");
   service.setForegroundMode(true);
-  Timer.periodic(Duration(seconds: 1), (timer) async {
+  Timer.periodic(const Duration(seconds: 1), (timer) async {
     if (!(await service.isServiceRunning())) timer.cancel();
 
     service.setNotificationInfo(

@@ -11,12 +11,12 @@ class LiveSafe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 90,
       width: MediaQuery.of(context).size.width,
       child: ListView(
           scrollDirection: Axis.horizontal,
-          physics: BouncingScrollPhysics(),
+          physics: const BouncingScrollPhysics(),
           children: [
             HospitalCard(
               openMapFunc: openMap,

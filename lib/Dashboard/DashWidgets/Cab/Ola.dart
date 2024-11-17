@@ -2,10 +2,7 @@ import 'package:android_intent_plus/android_intent.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:gosecure/HiddenCamera/detection.dart';
 
-import '../../../Fake call/fake.dart';
-import '../../../Fake call/fake_call_support.dart';
 
 class OlaCard extends StatelessWidget {
   const OlaCard({required Key key}) : super(key: key);
@@ -22,10 +19,11 @@ class OlaCard extends StatelessWidget {
       await intent.launch();
     } else {
       String url = dt;
-      if (await canLaunch(url))
+      if (await canLaunch(url)) {
         await launch(url);
-      else
+      } else {
         throw 'Could not launch $url';
+      }
     }
   }
 
@@ -44,7 +42,7 @@ class OlaCard extends StatelessWidget {
                 _openOla();
                 // Navigator.of(context).push(MaterialPageRoute(builder: (context) => Detection()));
               },
-              child: Container(
+              child: SizedBox(
                   height: 50,
                   width: 50,
                   child: Center(
@@ -54,7 +52,7 @@ class OlaCard extends StatelessWidget {
                   ))),
             ),
           ),
-          Text("Ola")
+          const Text("Ola")
         ],
       ),
     );
