@@ -1,0 +1,31 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:1:1-6:12
+INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:1:1-6:12
+INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:1:1-6:12
+	package
+		ADDED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:2:3-32
+		INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:1:11-69
+meta-data#flutterEmbedding
+ADDED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:4:3-65
+	android:value
+		ADDED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:4:46-63
+	android:name
+		ADDED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:4:14-45
+uses-sdk
+INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
