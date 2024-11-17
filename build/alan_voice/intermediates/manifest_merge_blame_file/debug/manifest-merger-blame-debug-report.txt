@@ -1,0 +1,18 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="app.alan.alan_voice" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="21"
+6-->C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="21" />
+7-->C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml
+8
+9    <meta-data
+9-->C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:4:3-65
+10        android:name="flutterEmbedding"
+10-->C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:4:14-45
+11        android:value="2" />
+11-->C:\Users\Abhishek Raina\AppData\Local\Pub\Cache\hosted\pub.dev\alan_voice-3.0.0\android\src\main\AndroidManifest.xml:4:46-63
+12
+13</manifest>
